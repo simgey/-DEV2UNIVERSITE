@@ -12,11 +12,14 @@ namespace UniversiteOdev2
             do
             {
                 Console.WriteLine("Secmek İstediğiniz İslemi Giriniz");
-                Console.WriteLine("1-Fakulte İslemleri ");
-                Console.WriteLine("2-Bolum İslemleri");
-                Console.WriteLine("3-Ogretim Gorevlisi İslemleri");
-                Console.WriteLine("4-Ogrenci İslemleri");
-                Console.WriteLine("5-Cık");
+                Console.WriteLine("1-Universite İslemleri");//Fakulte Ekleyip Cıkartma işlemleri
+                Console.WriteLine("2-Fakulte İslemleri ");//Bolum Ekleyip çıkartma işlemleri
+                Console.WriteLine("3-Bolum İslemleri");//ogrenci,ders,Ogretim elemanı 
+                Console.WriteLine("4-Ders İslemleri");//ogretimelemanı,şube,Ogrenci
+                Console.WriteLine("5-Ogretim Gorevlisi İslemleri");//Ders ekle sil
+                Console.WriteLine("6-Ogrenci İslemleri");//Ders ekle sil
+                Console.WriteLine("7-Fakulteye-Bolumlere Ait Dersleri Listele");
+                Console.WriteLine("8-Cık");
                 x = Convert.ToInt16(Console.ReadLine());
 
                 switch (x)
@@ -24,13 +27,13 @@ namespace UniversiteOdev2
                     case 1:
                         {
                             Universite U = new Universite();
-                            U.FakulteEkle();
+                            U.UniversiteIslemleri();
                             break;
                         }
                     case 2:
                         {
                             Fakulte F = new Fakulte();
-                            F.BolumEkle();
+                            F.FakulteIslemleri();
                             break;
                         }
                     case 3:
@@ -38,12 +41,29 @@ namespace UniversiteOdev2
                             Bolum B = new Bolum();
                             B.BolumIslemleri();
                             break;
+                           
                         }
                     case 4:
                         {
+                            Ders D = new Ders();
+
+
                             break;
                         }
                     case 5:
+                        {
+                            break;
+                        }
+                    case 6:
+                        {
+
+                            break;
+                        }
+                    case 7:
+                        {
+                            break;
+                        }
+                    case 8:
                         {
                             return -1;
 

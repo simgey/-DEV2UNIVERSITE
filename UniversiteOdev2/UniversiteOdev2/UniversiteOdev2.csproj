@@ -40,6 +40,8 @@
     <Compile Include="OgretimUyesi.cs" />
     <Compile Include="Ders.cs" />
     <Compile Include="Ogrenci.cs" />
+    <Compile Include="Ogrencii.cs" />
+    <Compile Include="Listele.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

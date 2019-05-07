@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace UniversiteOdev2
 {  
-    public class Bolum
+    public class Bolum:Fakulte
     {
         Dictionary<int, string> Ogrenci = new Dictionary<int, string>();
         Dictionary<int, string> Ders = new Dictionary<int, string>();
@@ -13,8 +13,12 @@ namespace UniversiteOdev2
         {
             int x;
             Console.WriteLine("1-Ders Ekle");
-            Console.WriteLine("2-Ogrenci Ekle");
-            Console.WriteLine("3-Ogretim Uyesi Ekle");
+            Console.WriteLine("2-Ders Sil");
+            Console.WriteLine("3-Ogrenci Ekle");
+            Console.WriteLine("4-Ogrenci Sil");
+            Console.WriteLine("5-Ogretim Uyesi Ekle");
+            Console.WriteLine("6-Ogretim Uyesi Sil");
+
             x = Convert.ToInt16(Console.ReadLine());
 
             switch(x)
@@ -26,12 +30,27 @@ namespace UniversiteOdev2
                     }
                 case 2:
                     {
-                        OgrenciEkle();
+                        DersSil();
                         break;
                     }
                 case 3:
                     {
+                        OgrenciEkle();
+                        break;
+                    }
+                case 4:
+                    {
+                        OgrenciSil();
+                        break;
+                    }
+                case 5:
+                    {
                         OgretimUyesiEkle();
+                        break;
+                    }
+                case 6:
+                    {
+                        OgretimUyesiSil();
                         break;
                     }
             }
@@ -47,11 +66,31 @@ namespace UniversiteOdev2
             Ders.Add(DersID, DersAd);
 
         }
+        public void DersSil()
+        {
+            int DersID;
+            Console.WriteLine("Silmek İsediğiniz Dersin ID Numarasını Giriniz:");
+            DersID = Convert.ToInt16(Console.ReadLine());
+            Ders.Remove(DersID);
+
+        }
         public void OgrenciEkle()
         {
-          int  OgrenciID;
-          string OgrenciAdi;
-
+            int  OgrenciID;
+            string OgrenciAdi;
+            Console.WriteLine("Eklemek İsediğiniz Ogrencinin ID Numarasını Giriniz:");
+            OgrenciID = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine("Eklemek İstediğiniz Ogrencinin Adını Giriniz:");
+            OgrenciAdi = Console.ReadLine();
+            Ogrenci.Add(OgrenciID, OgrenciAdi);
+        }
+        public void OgrenciSil()
+        {
+            int OgrenciID;
+           
+            Console.WriteLine("Silmek İsediğiniz Ogrencinin ID Numarasını Giriniz:");
+            OgrenciID = Convert.ToInt16(Console.ReadLine());
+            Ogrenci.Remove(OgrenciID);
         }
         public void OgretimUyesiEkle()
         {
@@ -61,7 +100,15 @@ namespace UniversiteOdev2
             OgretimUyesiID = Convert.ToInt16(Console.ReadLine());
             Console.WriteLine("Eklemek İstediğiniz Ogretim Uyesinin Adını Giriniz:");
             OgretimUyesiAd= Console.ReadLine();
-            OgretimUyesi.Add(OgretimUyesiID, OgretimUyesiAd);
+            OgretimUyesi.Add(OgretimUyesiID,OgretimUyesiAd);
+        }
+        public void OgretimUyesiSil()
+        {
+            int OgretimUyesiID;
+           
+            Console.WriteLine("Silmek İsediğiniz Ogretim Uyesinin ID Numarasını Giriniz:");
+            OgretimUyesiID = Convert.ToInt16(Console.ReadLine());
+            OgretimUyesi.Remove(OgretimUyesiID);
         }
 
     }

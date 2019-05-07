@@ -1,10 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace UniversiteOdev2
 {
     public class OgretimUyesi
     {
-        public OgretimUyesi()
-        {
-        }
+        Dictionary<int, string> OgretimElemanı = new Dictionary<int, string>();
+
     }
 }
