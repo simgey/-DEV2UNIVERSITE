@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 namespace UniversiteOdev2
 { 
-    public class Universite
+    public  class Universite
     {
-        Dictionary<int, string> Fakulte = new Dictionary<int, string>();
-        public void UniversiteIslemleri() //Univesiteye fakulte ekleyip Çıkartma işlemleri 
+      public  static Dictionary<int, Fakulte> FakulteDictionay = new Dictionary<int, Fakulte>();//value olarak fakulte tipinde bir  nesne alıyor.
+        public  void UniversiteIslemleri() //Univesiteye fakulte ekleyip Çıkartma işlemleri 
         {   int x;
             Console.WriteLine("1-Universiteye Fakulte Eklemek İcin");
             Console.WriteLine("2-Universiteden Fakulte Silmek İcin");
@@ -25,21 +25,28 @@ namespace UniversiteOdev2
             }
         }
         public void FakulteEkle()
-        {
-            int FakulteID;
-            string FakulteAd;
+        { 
+            int FakulteID1;
+            string FakulteAd1;
             Console.WriteLine("Eklemek İstediğiniz Fakultenin ID Numarasini Giriniz:");
-            FakulteID = Convert.ToInt16(Console.ReadLine());
+            FakulteID1 = Convert.ToInt16(Console.ReadLine());
             Console.WriteLine("Eklemek İstediğiniz Fakultenin Adını Giriniz:");
-            FakulteAd = Console.ReadLine();
-            Fakulte.Add(FakulteID, FakulteAd);
+            FakulteAd1 =Console.ReadLine();
+            Fakulte f = new Fakulte( FakulteAd1, FakulteID1);
+            FakulteDictionay.Add(FakulteID1,new Fakulte(f.fakultead=FakulteAd1 ,f.fakulteid=FakulteID1 ));
+            foreach(int F in FakulteDictionay.Keys )
+            {
+                Console.WriteLine(F);
+            }
+
         }
-        public void FakulteSil()
+        public  void FakulteSil()
         {
             int FakulteID;  //Fakulte Id numarası üzerinden silme gerçekleştiriliyor.
             Console.WriteLine("Eklemek İstediğiniz Fakultenin ID Numarasini Giriniz:");
             FakulteID = Convert.ToInt16(Console.ReadLine());
-            Fakulte.Remove(FakulteID);
+            FakulteDictionay.Remove(FakulteID);
+           
         }
     }
 

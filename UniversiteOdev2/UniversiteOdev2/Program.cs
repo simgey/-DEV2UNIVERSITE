@@ -18,7 +18,7 @@ namespace UniversiteOdev2
                 Console.WriteLine("4-Ders İslemleri");//ogretimelemanı,şube,Ogrenci
                 Console.WriteLine("5-Ogretim Gorevlisi İslemleri");//Ders ekle sil
                 Console.WriteLine("6-Ogrenci İslemleri");//Ders ekle sil
-                Console.WriteLine("7-Fakulteye-Bolumlere Ait Dersleri Listele");
+                Console.WriteLine("7-Listeleme İslemleri");//Fakuleye,bolume ait derslerin ve derse,subeye kayıtlı ogrencilerin listelenmesi
                 Console.WriteLine("8-Cık");
                 x = Convert.ToInt16(Console.ReadLine());
 
@@ -32,8 +32,8 @@ namespace UniversiteOdev2
                         }
                     case 2:
                         {
-                            Fakulte F = new Fakulte();
-                            F.FakulteIslemleri();
+                         
+                           
                             break;
                         }
                     case 3:
@@ -46,6 +46,7 @@ namespace UniversiteOdev2
                     case 4:
                         {
                             Ders D = new Ders();
+                            D.Dersİslemleri();
 
 
                             break;
@@ -61,12 +62,18 @@ namespace UniversiteOdev2
                         }
                     case 7:
                         {
+                            Listele L = new Listele();
+                            L.Listelemeİslemleri();
                             break;
                         }
                     case 8:
                         {
-                            return -1;
+                            break;
 
+                        }
+                    case 9:
+                        {
+                            return -1;
                         }
                 }
             } while (x != 0);

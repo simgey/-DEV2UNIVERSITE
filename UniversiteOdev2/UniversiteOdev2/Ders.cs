@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 namespace UniversiteOdev2
 {
-    public class Ders
+    public class Ders:Bolum
     {
         Dictionary<int, int> Sube = new Dictionary<int,int>();
         Dictionary<int, string> OgretimElemani = new Dictionary<int, string>();

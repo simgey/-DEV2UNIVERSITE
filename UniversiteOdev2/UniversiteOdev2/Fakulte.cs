@@ -4,7 +4,30 @@ namespace UniversiteOdev2
 {
     public class Fakulte:Universite
     {
-        Dictionary<int, string> Bolum= new Dictionary<int, string>();
+        public  string Fakultead;
+        public  int Fakulteid;
+        public string fakultead
+        {
+            get
+            {
+                return Fakultead;
+            }
+            set
+            {
+                Fakultead = value;
+            }
+        }
+
+        public int fakulteid { get; set; }
+
+        public Fakulte(string Fakultead,int Fakulteid)
+        {
+            this.Fakultead = fakultead;
+            this.Fakulteid = fakulteid;
+        }
+
+
+        public Dictionary<int, Ders> Bolum = new Dictionary<int, Ders>();
         public void FakulteIslemleri()
         {
             int x;
@@ -26,21 +49,34 @@ namespace UniversiteOdev2
             }
         }
         public void BolumEkle()
-        {
+        {  
             int BolumID;
             string BolumAd;
-            Console.WriteLine("Eklemek İsediğiniz Dersin ID Numarasını Giriniz:");
+            string FakulteAD;
+            Console.WriteLine("Bolum eklemek istediğiniz fakultryi giriniz:");
+            FakulteAD = Console.ReadLine();
+
+            Console.WriteLine("Eklemek İsediğiniz Bolumun ID Numarasını Giriniz:");
             BolumID = Convert.ToInt16(Console.ReadLine());
-            Console.WriteLine("Eklemek İstediğiniz Dersin Adını Giriniz:");
+            Console.WriteLine("Eklemek İstediğiniz Bolumun Adını Giriniz:");
             BolumAd = Console.ReadLine();
-            Bolum.Add(BolumID, BolumAd);
+
+
         }
         public void BolumSil()
         {
             int BolumID;
-            Console.WriteLine("Silmek İsediğiniz Dersin ID Numarasını Giriniz:");
+            int FakulteID;
+            Console.WriteLine("Silmek İstediğiniz Bolumun Fakulte ID sini Giriniz:");
+            FakulteID = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine("Silmek İsediğiniz Bolumun ID Numarasını Giriniz:");
             BolumID = Convert.ToInt16(Console.ReadLine());
             Bolum.Remove(BolumID);
+            if(FakulteID==BolumID)
+            {
+
+             }
+          
         }
     }
 }

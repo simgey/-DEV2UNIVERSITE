@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace UniversiteOdev2
 {  
-    public class Bolum:Fakulte
+    public class Bolum
     {
         Dictionary<int, string> Ogrenci = new Dictionary<int, string>();
         Dictionary<int, string> Ders = new Dictionary<int, string>();
@@ -59,16 +59,25 @@ namespace UniversiteOdev2
         {
             int DersID;
             string DersAd;
+            string BolumAd;
+
+            Console.WriteLine("Eklemek İstediğiniz Dersin Bölümünü Giriniz:");
+            BolumAd = Console.ReadLine();
             Console.WriteLine("Eklemek İsediğiniz Dersin ID Numarasını Giriniz:");
             DersID= Convert.ToInt16(Console.ReadLine());
             Console.WriteLine("Eklemek İstediğiniz Dersin Adını Giriniz:");
             DersAd = Console.ReadLine();
             Ders.Add(DersID, DersAd);
+          
+
 
         }
         public void DersSil()
         {
             int DersID;
+            string bolumAd;
+            Console.WriteLine("Silmek istediğiniz Dersin Hangi Bölümde Olduğunu Giriniz:");
+            bolumAd=Console.ReadLine();
             Console.WriteLine("Silmek İsediğiniz Dersin ID Numarasını Giriniz:");
             DersID = Convert.ToInt16(Console.ReadLine());
             Ders.Remove(DersID);
