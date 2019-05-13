@@ -86,13 +86,13 @@ namespace UniversiteOdev2
 
 
         }
-        public void DersListele() //bolume kayıtlı dersler
+        public void DersListele()//Ders listeleyen method
         { 
              Ders B;
-            int bolumid;
-            Console.WriteLine("İslem yapmak istediğiniz bolumun   id numarasını giriniz:");
-            bolumid = Convert.ToInt32(Console.ReadLine());
-            if (Bolum.DersDictionary.TryGetValue(bolumid, out B)) 
+            int dersid;
+            Console.WriteLine("İslem yapmak istediğiniz dersin id numarasını giriniz:");
+            dersid = Convert.ToInt32(Console.ReadLine());
+            if (Bolum.DersDictionary.TryGetValue(dersid, out B)) 
             {
 
                   foreach(int i in Bolum.DersDictionary.Keys)
@@ -116,7 +116,7 @@ namespace UniversiteOdev2
             int dersid;
             Console.WriteLine("İslem yapmak istediğiniz dersin id numarasını gririniz:");
             dersid = Convert.ToInt32(Console.ReadLine());
-         
+
         }
 
         public void OgretimUyesiListele()
