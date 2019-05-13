@@ -3,64 +3,82 @@ using System.Collections.Generic;
 namespace UniversiteOdev2
 {
     public class Listele
-    { Dictionary<int, string> Ders = new Dictionary<int, string>();
-            public void Listelemeİslemleri()
+    {
+        public void Listelemeİslemleri()
         {
-            int x;
-            Console.WriteLine("1-Fakulteye-Bolume Ait Dersleri Listele");
-            Console.WriteLine("2-Derse-Subeye Kayıtlı Ogrenci Listele");
-            x = Convert.ToInt16(Console.ReadLine());
-            switch(x)
+            int fakulteid;
+            int bolumid;
+            int dersid;
+            Console.WriteLine("Dokuz Eylül Üniversitesi Ders/Ogrenci/Ogretimuyesi Sorgulama Ekrani");
+            Console.WriteLine("İslem yapmak istediğiniz fakultenin id numarasını giriniz:");
+            foreach (Fakulte u in Universite.FakulteDictionary.Values)
             {
-                case 1:
-                    {
-                       
-                        break;
-                    }
-                case 2:
-                    {
+                Console.WriteLine( u.fakulteid + "-" + u.fakultead);
+            }
+            fakulteid = Convert.ToInt32(Console.ReadLine());
+            Fakulte f;
+            Bolum bolum;
 
-                        break;
-                    }
+            if(Universite.FakulteDictionary.TryGetValue(fakulteid,out f))
+            {
+                foreach (int l in Universite.FakulteDictionary.Keys) 
+                {
+                    if(fakulteid==l)
+                    { 
+                        foreach(Bolum b in Fakulte.BolumDictionary.Values)
+                        {
+                            Console.WriteLine( b.bolumid+ " -" +b.bolumad);
 
+                        }
+                        Console.WriteLine("İslem yapmak istediğiniz bölümün id numarasını giriniz:");
+                        bolumid = Convert.ToInt32(Console.ReadLine());
+                        if(Fakulte.BolumDictionary.TryGetValue(bolumid,out bolum))
+                        {
+                            foreach(int d in Bolum.DersDictionary.Keys)
+                            {
+                                if(bolumid==d)
+                                {
+                                    foreach(Ders ders in Bolum.DersDictionary.Values)
+                                    {
+                                        Console.WriteLine(ders.dersId + "-" + ders.dersAd);
+                                    }
+                                }
+                                Console.WriteLine("İslem yapmak istediğiniz dersin id numarasını giriniz:");
+                                dersid = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("1-Derse kayıtlı ogrencileri listele");
+                                Console.WriteLine("2-Dersin ogretim görevlisini görüntüle");
+                                int secim;
+                                secim = Convert.ToInt32(Console.ReadLine());
+                               
+
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Yanlıs id girdiniz");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Yanlıs id giridiniz:");
             }
            
+
         }
-        /* public void DersListele()
-         {
-             string FakAD;
-             string BolumAD;
-             Universite u = new Universite();
+        public void DersListele()
+        {
+           
+        }
+        public void OgrenciListele()
+        {
+            
+        }
 
-             Bolum b = new Bolum();
-             foreach (string universite in u.Fakulte.Values)
-             {
-                 Console.WriteLine(universite);
-             }
-             Console.WriteLine("Hangi Fakultedeki Dersleri Listelemek İstediğinizi Giriniz:");
-             FakAD = Console.ReadLine();
-             /?
-             foreach (string fakulte in f.Bolum.Values)
-             {
+        public void OgretimUyesiListele()
+        {
 
-                if (FakAD == fakulte)
-                 {
-                     Console.WriteLine(fakulte);
-                 }
-             }
-             Console.WriteLine("Hangi Bolumdeki Dersleri Listelemek İstersiniz:");
-             BolumAD = Console.ReadLine();
-             foreach (string bolum in b.Bolum.Values)
-             {
-                 if(BolumAD==bolum)
-                 {
-                     Console.WriteLine(bolum);
-                 }
-
-             }
-         }
-         public void OgrListele()
-         {
-
-         }*/
-}    }
+        }
+    } 
+   }

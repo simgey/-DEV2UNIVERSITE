@@ -42,6 +42,7 @@
     <Compile Include="Ogrenci.cs" />
     <Compile Include="Ogrencii.cs" />
     <Compile Include="Listele.cs" />
+    <Compile Include="Sube.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

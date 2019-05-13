@@ -1,73 +1,34 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace UniversiteOdev2
 {
     public  class Ogrencii
     {
-        int No;
-        string Ad;
-        string Soyad;
-        string Bolum;
-
-        public int no
-        { 
-            get { return No; }
-            set { No = value; }
-
-        }
-        public string ad
+        int OgrenciID;
+        string OgrenciAd;
+        string OgrenciSoyad;
+        string OgretimDurumu;
+        public int ogrenciid { get; set; }
+        public string ogrenciad { get; set; }
+        public string ogrencisoyad { get; set; }
+        public string ogretimDurumu { get; set; }
+        public Ogrencii(int Ogrenciİd,string OgrenciAd,string OgrenciSoyad,int ogretimDurumu)
         {
-            get { return Ad; }
-            set { Ad = value; }
+            this.ogrenciad = OgrenciAd;
+            this.ogrenciid = Ogrenciİd;
+            this.ogrencisoyad = OgrenciSoyad;
+            switch (ogretimDurumu)
+            {
+                case 0:
+                    this.ogretimDurumu = "Lisans";
+                    break;
+                case 1:
+                    this.ogretimDurumu = "Yuksek Lisans";
+                    break;
+                case 2:
+                    this.ogretimDurumu = "Doktora";
+                    break;
+            }
         }
-        public string soyad
-        {
-            get { return Soyad; }
-            set { Soyad = value; }
-        }
-        public string bolum
-        {
-            get { return Bolum; }
-            set { Bolum = value; }
-        }
-    
-        public Ogrencii(int No,string Ad,string Soyad, string Bolum)
-        {
-            this.no = No;
-            this.ad = Ad;
-            this.soyad = Soyad;
-            this.bolum = Bolum;
-        }
-    }
-    public class Lisans:Ogrencii
-    {
-        public Lisans(int No, string Ad, string Soyad, string Bolum):base(No,Ad, Soyad, Bolum)
-        {
-            this.no = No;
-            this.ad = Ad;
-            this.soyad = Soyad;
-            this.bolum = Bolum;
-        }
-
-    }
-    public class YuksekLisans:Ogrencii
-    {
-        public YuksekLisans(int No,string Ad,string Soyad,string Bolum):base(No,Ad,Soyad,Bolum)
-        {
-            this.no = No;
-            this.ad = Ad;
-            this.soyad = Soyad;
-            this.bolum = Bolum;
-        }
-    }
-    public class Doktora:Ogrencii
-    {
-        public Doktora(int No, string Ad, string Soyad, string Bolum) : base(No, Ad, Soyad, Bolum)
-        {
-            this.no = No;
-            this.ad = Ad;
-            this.soyad = Soyad;
-            this.bolum = Bolum;
-        }
-
     }
 }

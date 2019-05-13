@@ -2,81 +2,28 @@
 using System.Collections.Generic;
 namespace UniversiteOdev2
 {
-    public class Fakulte:Universite
+    public class Fakulte
     {
-        public  string Fakultead;
-        public  int Fakulteid;
-        public string fakultead
-        {
-            get
-            {
-                return Fakultead;
-            }
-            set
-            {
-                Fakultead = value;
-            }
-        }
-
+        int Fakulteid;
+        string Fakutead;
         public int fakulteid { get; set; }
-
-        public Fakulte(string Fakultead,int Fakulteid)
+        public string fakultead { get; set; }
+      public static  Dictionary<int, Bolum> BolumDictionary = new Dictionary<int, Bolum>();
+        public Fakulte(int fakulteId,string fakulteAd)
         {
-            this.Fakultead = fakultead;
-            this.Fakulteid = fakulteid;
+            this.fakulteid = fakulteId;
+            this.fakultead = fakulteAd;
         }
-
-
-        public Dictionary<int, Ders> Bolum = new Dictionary<int, Ders>();
-        public void FakulteIslemleri()
+       public  void BolumEkle(int bolumid,string bolumad)
         {
-            int x;
-            Console.WriteLine("1-Bolum Ekle");
-            Console.WriteLine("2-Bolum Sil");
-            x = Convert.ToInt16(Console.ReadLine());
-            switch(x)
-            {
-                case 1:
-                    {
-                        BolumEkle();
-                        break;
-                    }
-                case 2:
-                    {
-                        BolumSil();
-                        break;
-                    }
-            }
-        }
-        public void BolumEkle()
-        {  
-            int BolumID;
-            string BolumAd;
-            string FakulteAD;
-            Console.WriteLine("Bolum eklemek istediğiniz fakultryi giriniz:");
-            FakulteAD = Console.ReadLine();
-
-            Console.WriteLine("Eklemek İsediğiniz Bolumun ID Numarasını Giriniz:");
-            BolumID = Convert.ToInt16(Console.ReadLine());
-            Console.WriteLine("Eklemek İstediğiniz Bolumun Adını Giriniz:");
-            BolumAd = Console.ReadLine();
-
+            BolumDictionary.Add(bolumid, new Bolum(bolumid, bolumad));
+            Console.WriteLine(BolumDictionary[bolumid].bolumad);
 
         }
-        public void BolumSil()
+        public void BolumSil(int bolumid)
         {
-            int BolumID;
-            int FakulteID;
-            Console.WriteLine("Silmek İstediğiniz Bolumun Fakulte ID sini Giriniz:");
-            FakulteID = Convert.ToInt16(Console.ReadLine());
-            Console.WriteLine("Silmek İsediğiniz Bolumun ID Numarasını Giriniz:");
-            BolumID = Convert.ToInt16(Console.ReadLine());
-            Bolum.Remove(BolumID);
-            if(FakulteID==BolumID)
-            {
-
-             }
-          
+            BolumDictionary.Remove(bolumid);
         }
+
     }
 }
