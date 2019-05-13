@@ -111,6 +111,8 @@ namespace UniversiteOdev2
                             Console.WriteLine("2-Ders sil");
                             Console.WriteLine("3-Ogretim uyesi ekle");
                             Console.WriteLine("4-Ogretim uyesi sil");
+                            Console.WriteLine("5-Ogrenci ekle");
+                            Console.WriteLine("6-Ogrenci sil");
                             k = Convert.ToInt32(Console.ReadLine());
                             switch (k)
                             {
@@ -172,12 +174,51 @@ namespace UniversiteOdev2
                                         int ogruyesiid;
                                         Console.WriteLine("Ogretim uyesi silmek istediğiniz bolumun adını giriniz:");
                                         bolumad = Console.ReadLine();
-                                        Console.WriteLine("Ogretim uyesi silmek istediğiniz bolumun adını giriniz:");
+                                        Console.WriteLine("Ogretim uyesi silmek istediğiniz bolumun id numarasını giriniz:");
                                         bolumid = Convert.ToInt32(Console.ReadLine());
                                         Console.WriteLine("Eklemek istediğiniz ogretim uyesinin id numarasını giriniz:");
                                         ogruyesiid = Convert.ToInt32(Console.ReadLine());
                                         Bolum b = new Bolum(bolumid, bolumad);
                                         b.DersSil(ogruyesiid);
+                                        break;
+                                    }
+                                case 5://ogrenci ekle
+                                    {
+                                        int bolumid;
+                                        string bolumad;
+                                        int ogrenciid;
+                                         string ogrenciad;
+                                        int ogrencidurum;
+                                        Console.WriteLine("Ogrenci kaydetmek istediğiniz bolumun id numarasını giriniz:");
+                                        bolumid = Convert.ToInt32(Console.ReadLine());
+                                        Console.WriteLine("Ogrenci kaydetmek istediğiniz bolumun adını giriniz:");
+                                        bolumad = Console.ReadLine();
+                                        Console.WriteLine("Kaydetmek istediğiniz ogrencinin id numarasını giriniz: ");
+                                        ogrenciid = Convert.ToInt32(Console.ReadLine());
+                                        Console.WriteLine("Kaydetmek istediğiniz ogrencinin adini giriniz:");
+                                        ogrenciad = Console.ReadLine();
+                                        Console.WriteLine("Kaydetmek istediğiniz ogrencinin durumunu giriniz(1-Lisans 2-Yukseklisans 3-Doktora)");
+                                        ogrencidurum = Convert.ToInt32(Console.ReadLine());
+                                        Bolum b = new Bolum(bolumid, bolumad);
+                                        b.OgrenciEkle(ogrenciid,ogrenciad,ogrencidurum);
+
+                                        
+                                        break;
+                                    }
+                                case 6://ogrenci sil
+                                    {
+                                        int bolumid;
+                                        string bolumad;
+                                        int ogrenciid;
+                                        Console.WriteLine("Ogrenci silmek istediğiniz bolumun id numarasını giriniz:");
+                                        bolumid = Convert.ToInt32(Console.ReadLine());
+                                        Console.WriteLine("Ogrenci silmek istediğiniz bolumun adını giriniz:");
+                                        bolumad = Console.ReadLine();
+                                        Console.WriteLine("Silmek istediğiniz ogrencinin id numarasını giriniz:");
+                                        ogrenciid = Convert.ToInt32(Console.ReadLine());
+                                        Bolum b = new Bolum(bolumid, bolumad);
+                                        b.OgreciSil(ogrenciid);
+
                                         break;
                                     }
                             }
@@ -188,6 +229,95 @@ namespace UniversiteOdev2
                         }
                     case 4:// ders islemleri
                         {
+                            int m;
+                            Console.WriteLine("1-Derse ogrenci ekle");
+                            Console.WriteLine("2-Dersten ogrenci sil");
+                            Console.WriteLine("3-Derse hoca ekle ");
+                            Console.WriteLine("4-Dersten hoca sil");
+                            m = Convert.ToInt32(Console.ReadLine());
+                            switch(m)
+                            {
+                                case 1://derse ogrenci ekle
+                                    {
+                                        int dersid;
+                                        string dersad;
+                                        int ogrenciid;
+                                        string ogrenciad;
+                                        int ogrencidurum;
+                                        Console.WriteLine("Ogrenci kaydetmek istediğiniz dersin id numarasını giriniz:");
+                                        dersid = Convert.ToInt32(Console.ReadLine());
+                                        Console.WriteLine("Ogrenci kaydetmek istediğiniz dersin adını giriniz:");
+                                        dersad = Console.ReadLine();
+                                        Console.WriteLine("Kaydetmek istediğiniz ogrencinin id numarasını giriniz: ");
+                                        ogrenciid = Convert.ToInt32(Console.ReadLine());
+                                        Console.WriteLine("Kaydetmek istediğiniz ogrencinin adini giriniz:");
+                                        ogrenciad = Console.ReadLine();
+                                        Console.WriteLine("Kaydetmek istediğiniz ogrencinin durumunu giriniz(1-Lisans 2-Yukseklisans 3-Doktora)");
+                                        ogrencidurum = Convert.ToInt32(Console.ReadLine());
+                                        Ders d = new Ders(dersid, dersad);
+                                        d.OgreciEkle(ogrenciid, ogrenciad, ogrencidurum);
+                                        break;
+                                    }
+                                case 2://dersten ogrenci sil
+                                    {
+                                        int dersid;
+                                        string dersad;
+                                        int ogrenciid;
+                                        Console.WriteLine("Ogrenci silmek istediğiniz dersin id numarasını giriniz:");
+                                        dersid = Convert.ToInt32(Console.ReadLine());
+                                        Console.WriteLine("Ogrenci silmek istediğiniz dersin adını giriniz:");
+                                        dersad = Console.ReadLine();
+                                        Console.WriteLine("Silmek istediğiniz ogrencinin id numarasını giriniz:");
+                                        ogrenciid = Convert.ToInt32(Console.ReadLine());
+                                        Ders d = new Ders(dersid, dersad);
+                                        d.OgrenciSil(ogrenciid);
+                                        break;
+                                    }
+                                case 3://derse hoca ekle
+                                    {
+                                        int dersid;
+                                        string dersad;
+                                        int ogruyesiid;
+                                        string ogruyesiad;
+                                        Console.WriteLine("Ogretim uyesi eklemek istediğiniz dersin adını giriniz:");
+                                        dersad = Console.ReadLine();
+                                        Console.WriteLine("Ogretim uyesi eklemek istediğiniz dersin  id numarasını giriniz:");
+                                        dersid = Convert.ToInt32(Console.ReadLine());
+                                        Console.WriteLine("Eklemek istediğiniz ogretim uyesinin adını giriniz:");
+                                        ogruyesiad = Console.ReadLine();
+                                        Console.WriteLine("Eklemek istediğiniz ogretim uyesinin id numarasını giriniz:");
+                                        ogruyesiid = Convert.ToInt32(Console.ReadLine());
+                                        Ders b = new Ders(dersid,dersad);
+                                        b.HocaEkle(ogruyesiid, ogruyesiad);
+                                        break;
+
+                                    }
+                                case 4:// hocayı değiştir
+                                    {
+                                        int dersid;
+                                        string dersad;
+                                        int ogruyesiid;
+                                        string ogretimuyesiad2;
+                                        int ogruyesiid2;
+                                        Console.WriteLine("Ogretim uyesi değiştirmek istediğiniz dersin adını giriniz:");
+                                        dersad = Console.ReadLine();
+                                        Console.WriteLine("Ogretim uyesi değiştirmek istediğiniz ders id numarasını giriniz:");
+                                        dersid = Convert.ToInt32(Console.ReadLine());
+                                        Console.WriteLine("Değiştirmek istediğiniz ogretim uyesinin id numarasını giriniz:");
+                                        ogruyesiid = Convert.ToInt32(Console.ReadLine());
+                                        Ders d = new Ders(dersid, dersad);
+                                        d.HocaDegistir(ogruyesiid);
+                                        Console.WriteLine("Eklemek istediğiniz ogretim uyesinin adını giriniz:");
+                                        ogretimuyesiad2 = Console.ReadLine();
+                                        Console.WriteLine("Eklemek istediğiniz ogretim uyesinin id numarasını giriniz:");
+                                        ogruyesiid2 = Convert.ToInt32(Console.ReadLine());
+                                        d.HocaEkle(ogruyesiid2, ogretimuyesiad2);
+
+                                        break;
+                                      
+                                    }
+                            }
+
                             break;
                         }
                     case 5://listeleme islemleri
